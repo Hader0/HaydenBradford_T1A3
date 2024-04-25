@@ -1,7 +1,8 @@
 import os.path
 from pokedex_functions import view_pokedex, add_pokemon, remove_pokemon, view_strengths, view_weaknesses
 
-print("Welcome to your Pokedex!\n")
+print("Welcome to your Pokedex!\n\n")
+print("Add any Pokemon to the Pokedex! Even Pokemon you have created!")
 
 def pokedex_menu(): # The main menu the user can see when initially running the application
     print("1. Enter 1 to view your Pokedex")

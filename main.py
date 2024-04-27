@@ -28,23 +28,23 @@ if (not os.path.isfile(pokedex_csv)): # Checking if the file exists - if the fil
 
 choice = ""
 
-while choice != "5": # Keeps the application running until "choice" is changed to 5
+while choice != "6": # Keeps the application running until "choice" is changed to 5
 
     choice = pokedex_menu()
 
     if (choice == "1"):
-        view_pokedex(pokedex_file)
+        view_pokedex(pokedex_csv)
     elif (choice == "2"):
-        add_pokemon(pokedex_file)
+        add_pokemon(pokedex_csv)
     elif (choice == "3"):
-        remove_pokemon(pokedex_file)
+        remove_pokemon(pokedex_csv)
     elif (choice == "4"):
-        view_strengths(pokedex_file)
+        view_strengths(pokedex_csv)
     elif (choice == "5"):
-        view_weaknesses(pokedex_file)
+        view_weaknesses(pokedex_csv)
     elif (choice == "6"):
         choice = "6"
     else:
         print("That is not an option. Please try again!")
 
-print("Thanks for using the TODO list application!")
+print("Thanks for using the Pokedex application!")

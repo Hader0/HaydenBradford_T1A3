@@ -1,0 +1,62 @@
+Normal - Str: None
+Normal - Wea: Rock, Steel
+Normal - NA: Ghost
+
+Fire - Str: Grass, Ice, Bug, Steel
+Fire - Wea: Fire, Water, Rock, Dragon
+
+Water - Str: Fire, Ground, Rock
+Water - Wea: Water, Grass, Dragon
+
+Electric - Str: Water, Ground, Rock
+Electric - Wea: Electric, Grass, Dragon
+Electric - NA: Ground
+
+Grass - Str: Water, Ground, Rock
+Grass - Wea: Fire, Grass, Poison, Flying, Bug, Dragon, Steel
+
+Ice - Str: Grass, Ground, Flying, Dragon
+Ice - Wea: Fire, Water, Ice, Steel
+
+Fighting - Str: Normal, Ice, Bug, Dark, Steel
+Fighting - Wea: Poison, Flying, Psychic, Bug, Fairy
+Fighting - NA: Ghost
+
+Poison - Str: Grass, Fairy
+Poison - Wea: Poison, Ground, Rock, Ghost
+Poison - NA:
+
+Ground - Str: Fire, Electric, Poison, Rock, Steel
+Ground - Wea: Grass, Bug
+Ground - NA: Flying
+
+Flying - Str: Grass, Fighting, Bug
+Flying - Wea: Electric, Rock, Steel
+
+Psychic - Str: Fighting, Poison
+Psychic - Wea: Psychic, Steel
+Psychic - NA: Dark
+
+Bug - Str: Grass, Psychic, Dark
+Bug - Wea: Fire, Fighting, Poison, Flying, Ghsot, Steel, Fairy
+
+Rock - Str: Fire, Ice, Flying, Bug
+Rock - Wea: Fighting, Ground, Steel
+
+Ghost - Str: Psychic, Ghost
+Ghost - Wea: Dark
+Ghost - NA: Normal
+
+Dragon - Str: Dragon
+Dragon - Wea: Steel
+Dragon - NA: Fairy
+
+Dark - Str: Psychic, Ghost
+Dark - Wea: Fighting, Dark, Fairy
+
+Steel - Str: Ice, Rock, Fairy
+Steel - Wea: Fire, Water, Electric, Steel
+
+Fairy - Str: Fighting, Dragon, Dark
+Fairy - Wea: Fire, Poison, Steel
+

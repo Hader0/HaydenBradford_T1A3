@@ -52,7 +52,35 @@ def remove_pokemon(pokedex_csv):
 
 
 def view_strengths(pokedex_csv):
-    pass
+    pokemon_search = input("Enter the Pokemon you would like to see the Strengths of: ")
+    other_pokemon = []
+
+    try: # Try block to detect whether the list.csv exists, to prevent the program from crashing
+        with open(pokedex_csv, "r") as f:
+            reader = csv.reader(f)
+            reader.__next__() # Goes to the next row, skipping the first line
+
+            length = 0
+            
+            for pokemon in reader:
+                length+=1
+
+                if (pokemon[0] == pokemon_search): # Checks if the Pokemon matches the Pokemon desired in the list.csv
+                    print(f"\n{pokemon[0]} is available\n")
+
+                    
+
+                    break # To break the For Loop and stop the incrementing of the 'length' variable
+                else:
+                    other_pokemon.append(pokemon)
+
+            if (len(other_pokemon) == length): # If 'other_pokemon' and 'length' are the same value, the Pokemon that was searched was not found. If they are not equal, that means the pokemon was found and the incrementation was stopped
+                    print(f"{pokemon_search} was not found\n")
+            print(other_pokemon)
+                    
+
+    except FileNotFoundError:
+        print("The Pokedex file doesn't exist")
 
 def view_weaknesses(pokedex_csv): 
     pass

@@ -1,0 +1,47 @@
+typeStrengthWeakness, Strenghts, Weaknesses
+NormalStrength, None
+NormalWeakness, Rock, Steel
+NormalNothing, Ghost
+FireStrength, Grass, Ice, Bug, Steel
+FireWeakness, Fire, Water, Rock, Dragon
+WaterStrength, Fire, Ground, Rock
+WaterWeakness, Water, Grass, Dragon
+ElectricStrength, Water, Ground, Rock
+ElectricWeakness,Electric, Grass, Dragon
+ElectricNothing, Ground
+GrassStrength, Water, Ground, Rock
+GrassWeakness, Fire, Grass, Poison, Flying, Bug, Dragon, Steel
+IceStrength, Grass, Ground, Flying, Dragon
+IceWeakness, Fire, Water, Ice, Steel
+FightingStrength, Normal, Ice, Bug, Dark, Steel
+FightingWeakness, Poison, Flying, Psychic, Bug, Fairy
+FightingNothing, Ghost
+PoisonStrength, Grass, Fairy
+PoisonWeakness, Poison, Ground, Rock, Ghost
+PoisonNothing, Steel
+GroundStrength, Fire, Electric, Poison, Rock, Steel
+Ground, Grass, Bug
+Ground, Flying
+FlyingStrength, Grass, Fighting, Bug
+Flying, Electric, Rock, Steel
+PsychicStrength, Fighting, Poison
+Psychic, Psychic, Steel
+Psychic, Dark
+BugStrength, Grass, Psychic, Dark
+BugWeakness, Fire, Fighting, Poison, Flying, Ghsot, Steel, Fairy
+RockStrength, Fire, Ice, Flying, Bug
+RockWeakness, Fighting, Ground, Steel
+GhostStrength, Psychic, Ghost
+GhostWeakness, Dark
+GhostNothing, Normal
+DragonStrength, Dragon
+DragonWeakness, Steel
+DragonNothing, Fairy
+DarkStrength, Psychic, Ghost
+DarkWeakness, Fighting, Dark, Fairy
+SteelStrength, Ice, Rock, Fairy
+SteelWeakness, Fire, Water, Electric, Steel
+FairyStrength, Fighting, Dragon, Dark
+FairyWeakness, Fire, Poison, Steel
+
+

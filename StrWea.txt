@@ -24,7 +24,7 @@ Fighting - NA: Ghost
 
 Poison - Str: Grass, Fairy
 Poison - Wea: Poison, Ground, Rock, Ghost
-Poison - NA:
+Poison - NA: Steel
 
 Ground - Str: Fire, Electric, Poison, Rock, Steel
 Ground - Wea: Grass, Bug

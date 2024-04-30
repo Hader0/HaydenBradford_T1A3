@@ -66,8 +66,26 @@ def view_strengths(pokedex_csv):
                 length+=1
 
                 if (pokemon[0] == pokemon_search): # Checks if the Pokemon matches the Pokemon desired in the list.csv
-                    print(f"\n{pokemon[0]} is available\n")
 
+                    if (pokemon[2] == "None"):
+                        type = pokemon[1]
+                        print(f"\n{pokemon[0]} is available! The type is {type.capitalize()}\n")
+                    else:
+                        type1 = pokemon[1]
+                        type2 = pokemon[2]
+                        print(f"\n{pokemon[0]} is available! The types are {type1.capitalize()} & {type2.capitalize()}\n")
+
+
+                    # types_csv = "types.csv"
+                    # with open(types_csv, "r") as f:
+                    #     reader = csv.reader(f)
+                    #     reader.__next__() # Goes to the next row, skipping the first line
+
+                    #     for row in reader:
+                    #         if (pokemon_search + "Strength" != row[0]):
+                    #             pokemon_list.append(row)
+                    #         else:
+                    #             does_exist = True
                     
 
                     break # To break the For Loop and stop the incrementing of the 'length' variable

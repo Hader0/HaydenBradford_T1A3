@@ -52,7 +52,7 @@ def remove_pokemon(pokedex_csv):
 
 
 def view_strengths(pokedex_csv):
-    pokemon_search = input("Enter the Pokemon you would like to see the Strengths of: ")
+    pokemon_search = input("Enter the Pokemon you would like to see the Strengths of: ").capitalize()
     other_pokemon = []
 
     try: # Try block to detect whether the list.csv exists, to prevent the program from crashing
@@ -67,34 +67,47 @@ def view_strengths(pokedex_csv):
 
                 if (pokemon[0] == pokemon_search): # Checks if the Pokemon matches the Pokemon desired in the list.csv
 
-                    if (pokemon[2] == "None"):
-                        type = pokemon[1]
-                        print(f"\n{pokemon[0]} is available! The type is {type.capitalize()}\n")
+                    if (pokemon[2] != "None"):
+                        type1 = pokemon[1].capitalize()
+                        type2 = pokemon[2].capitalize()
+                        type = False
+                        print(f"\n{pokemon[0]} is available! The types are {type1} & {type2}\n")
+
                     else:
-                        type1 = pokemon[1]
-                        type2 = pokemon[2]
-                        print(f"\n{pokemon[0]} is available! The types are {type1.capitalize()} & {type2.capitalize()}\n")
+                        type = pokemon[1].capitalize()
+                        print(f"\n{pokemon[0]} is available! The type is {type}\n")
 
+                    types_csv = "types.csv"
+                    with open(types_csv, "r") as f:
+                        reader = csv.reader(f)
+                        reader.__next__() # Goes to the next row, skipping the first line
 
-                    # types_csv = "types.csv"
-                    # with open(types_csv, "r") as f:
-                    #     reader = csv.reader(f)
-                    #     reader.__next__() # Goes to the next row, skipping the first line
+                        for row in reader:
 
-                    #     for row in reader:
-                    #         if (pokemon_search + "Strength" != row[0]):
-                    #             pokemon_list.append(row)
-                    #         else:
-                    #             does_exist = True
+                            if type == True: # To check if the "type" variable has been assigned a value, if not, the pokemon has more than 1 type and it moves onto else
+                                search_type = type + "Strength"
+
+                                if (row[0] == search_type):
+                                    print(f"Strengths are: {row[1:]}")
+
+                                    break
+                            else: #
+                                search_type1 = type1 + "Strength"
+                                search_type2 = type2 + "Strength"
+
+                                if (row[0] == search_type1):
+                                    print(f"Strengths are: {row[1:]}")
+                                if (row[0] == search_type2):
+                                    print(f"Strengths are: {row[1:]}")
+                                
                     
-
                     break # To break the For Loop and stop the incrementing of the 'length' variable
                 else:
                     other_pokemon.append(pokemon)
 
             if (len(other_pokemon) == length): # If 'other_pokemon' and 'length' are the same value, the Pokemon that was searched was not found. If they are not equal, that means the pokemon was found and the incrementation was stopped
-                    print(f"{pokemon_search} was not found\n")
-            print(other_pokemon)
+                    print(f"\n{pokemon_search} was not found\n")
+            # print(other_pokemon)
                     
 
     except FileNotFoundError:

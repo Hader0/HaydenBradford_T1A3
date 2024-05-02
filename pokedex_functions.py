@@ -70,10 +70,11 @@ def view_strengths(pokedex_csv):
                     if (pokemon[2] != "None"):
                         type1 = pokemon[1].capitalize()
                         type2 = pokemon[2].capitalize()
-                        type = False
+                        single = False
                         print(f"\n{pokemon[0]} is available! The types are {type1} & {type2}\n")
 
                     else:
+                        single = True
                         type = pokemon[1].capitalize()
                         print(f"\n{pokemon[0]} is available! The type is {type}\n")
 
@@ -84,11 +85,18 @@ def view_strengths(pokedex_csv):
 
                         for row in reader:
 
-                            if type == True: # To check if the "type" variable has been assigned a value, if not, the pokemon has more than 1 type and it moves onto else
+                            if single == True: # To check if the "type" variable has been assigned a value, if not, the pokemon has more than 1 type and it moves onto else
                                 search_type = type + "Strength"
 
-                                if (row[0] == search_type):
-                                    print(f"Strengths are: {row[1:]}")
+                                if (row[0] == search_type): # Making sure the first value from the CSV row is the same as what the user has searched, in addition to the Strength
+
+                                    sentence = "Strengths are:"
+                                    strengths = ""
+
+                                    for i in row[1:]:
+                                        strengths += f" {i}, "
+
+                                    print(sentence + strengths[:-2]) # Removing the Space and comma at the end of the sentence created by the last loop
 
                                     break
                             else: #

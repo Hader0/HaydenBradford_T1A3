@@ -5,32 +5,30 @@ def view_pokedex(pokedex_csv):
             reader = csv.reader(f)
             reader.__next__() # Goes to the next row, skipping the first line
 
-            pokemonCollected = 0
-
-            print("Pokemon in your Pokedex!\n")
+            pokemon_collected = 0
 
             for row in reader:
-                pokemonCollected += 1 # Increments the value to how many rows/pokemon are in the list.csv
+                pokemon_collected += 1 # Increments the value to how many rows/pokemon are in the list.csv
                 if row[2] == "None": # Checks if the pokemon has a second type or not
                     print(f"{row[0]}: {row[1].capitalize()}") # Prints the pokemon name and the one type
                 else:
                     print(f"{row[0]}: {row[1].capitalize()}, {row[2].capitalize()}")
             
-            print(f"\nYou have collected {pokemonCollected} Pokemon!\n")
+            print(f"\nYou have collected {pokemon_collected} Pokemon!\n")
 
 def add_pokemon(pokedex_file):
     pokemon_name = input("Enter the Pokemon name: ") # Takes in a name, whether it be an official Pokemon or a made-up Pokemon
 
     number_of_types = input("Does your Pokemon have one or two types? Enter 1 or 2: ")
 
-    allTypes = ['Normal', 'Fire', 'Water', 'Electric', 'Grass', 'Ice', 'Fighting', 'Poison', 'Ground', 'Flying', 'Psychic', 'Bug', 'Rock', 'Ghost', 'Dragon', 'Dark', 'Steel', 'Fairy']
+    all_types = ['Normal', 'Fire', 'Water', 'Electric', 'Grass', 'Ice', 'Fighting', 'Poison', 'Ground', 'Flying', 'Psychic', 'Bug', 'Rock', 'Ghost', 'Dragon', 'Dark', 'Steel', 'Fairy']
     
     if number_of_types == 1:
-            type1 = input("Please enter the Pokemon type: ").capitalize() # Takes the pokemon type in
-            if allTypes.count(type1) > 0 and type1 != "": # Checks if the type matches one of the correct types in the allTypes list
+            type_1 = input("Please enter the Pokemon type: ").capitalize() # Takes the pokemon type in
+            if all_types.count(type_1) > 0 and type_1 != "": # Checks if the type matches one of the correct types in the allTypes list
                 with open(pokedex_file, "a") as f: # If the type is correct, the pokemon is added to the pokedex
                     writer = csv.writer(f)
-                    writer.writerow([pokemon_name.capitalize(), type1.capitalize(), "None"]) # Writes the name and type to the next line in list.csv
+                    writer.writerow([pokemon_name.capitalize(), type_1.capitalize(), "None"]) # Writes the name and type to the next line in list.csv
                 print(f"\n{pokemon_name.capitalize()} added to the Pokedex!")
             else:
                 print("\nPokemon not added - Incorrect Type. Please choose one of the available below:\n")
@@ -39,14 +37,14 @@ def add_pokemon(pokedex_file):
             print("\n") # To space the menu from the line above once the input has been accepted
 
     elif number_of_types == 2:
-        type1 = input("Please enter the Pokemon's first type: ").capitalize()
+        type_1 = input("Please enter the Pokemon's first type: ").capitalize()
         wrong = 0
-        if allTypes.count(type1) > 0 and type1 != "": # Checks if the type matches one of the correct types in the allTypes list
+        if all_types.count(type_1) > 0 and type_1 != "": # Checks if the type matches one of the correct types in the allTypes list
             pass
         else:
             wrong += 1 # Increments the value if the type does not match one of the correct types in the allTypes list
-        type2 = input("Please enter the Pokemon's second type: ").capitalize()
-        if allTypes.count(type2) > 0 and type2 != "":
+        type_2 = input("Please enter the Pokemon's second type: ").capitalize()
+        if all_types.count(type_2) > 0 and type_2 != "":
             pass
         else:
             wrong += 1 # Increments the value if the type does not match one of the correct types in the allTypes list
@@ -57,13 +55,13 @@ def add_pokemon(pokedex_file):
             print("\nPokemon not added - Incorrect Type/s. Please choose one of the available below:\n")
             print("Normal, Fire, Water, Electric, Grass, Ice, Fighting, Poison, Ground, Flying, Psychic, Bug, Rock, Ghost, Dragon, Dark, Steel, Fairy\n")
         
-        elif type1 == type2: # Checks if both types are the same value
+        elif type_1 == type_2: # Checks if both types are the same value
             print("Pokemon cannot have 2 of the same types. Please either choose 1 type or choose another from below:\n")
             print("Normal, Fire, Water, Electric, Grass, Ice, Fighting, Poison, Ground, Flying, Psychic, Bug, Rock, Ghost, Dragon, Dark, Steel, Fairy\n")
         else: # If all above is correct, the pokemon is finally added to the pokedex
             with open(pokedex_file, "a") as f:
                 writer = csv.writer(f)
-                writer.writerow([pokemon_name.capitalize(), type1.capitalize(), type2.capitalize()]) # Writes the name and both types to the next line in the list.csv
+                writer.writerow([pokemon_name.capitalize(), type_1.capitalize(), type_2.capitalize()]) # Writes the name and both types to the next line in the list.csv
             print(f"\n{pokemon_name.capitalize()} added to the Pokedex!\n")
 
     else: # If either 1 or 2 wasn't entered
@@ -108,10 +106,10 @@ def view_strengths(pokedex_csv):
                 if (pokemon[0] == pokemon_search): # Checks if the Pokemon matches the Pokemon desired in the list.csv
 
                     if (pokemon[2] != "None"):
-                        type1 = pokemon[1].capitalize()
-                        type2 = pokemon[2].capitalize()
+                        type_1 = pokemon[1].capitalize()
+                        type_2 = pokemon[2].capitalize()
                         single = False
-                        print(f"\n{pokemon[0]} is available! The types are {type1} & {type2}\n")
+                        print(f"\n{pokemon[0]} is available! The types are {type_1} & {type_2}\n")
 
                     else:
                         single = True
@@ -137,40 +135,40 @@ def view_strengths(pokedex_csv):
                                     print(f"{sentence}" + f"{strengths[:-2]}\n") # Removing the Space and comma at the end of the sentence created by the last loop
 
                         else: #
-                            search_type1 = type1 + "Strength"
-                            search_type2 = type2 + "Strength"
+                            search_type_1 = type_1 + "Strength"
+                            search_type_2 = type_2 + "Strength"
                             
                             sentence = "Strengths are:"
-                            strengths1 = []
-                            strengths2 = []
+                            strengths_1 = []
+                            strengths_2 = []
                             num = 1
 
                             for row in reader: # Getting the strengths from the first type
-                                if (row[0] == search_type1 and num == 1):# Making sure the first value from the CSV row is the same as what the user has searched, in addition to the Strength
+                                if (row[0] == search_type_1 and num == 1):# Making sure the first value from the CSV row is the same as what the user has searched, in addition to the Strength
                                     if (row[1] == "None"): # To check whether the strength has "None", if it does, then don't include it
                                         pass
 
                                     else:
-                                        strengths1.append(row[1:])
+                                        strengths_1.append(row[1:])
                                         num += 1
 
-                                elif (row[0] == search_type2 and num == 2):
+                                elif (row[0] == search_type_2 and num == 2):
                                     if (row[1] == "None"): # To check whether the strength has "None", if it does, then don't include it
                                         pass
 
                                     else:
-                                        strengths2.append(row[1:])
+                                        strengths_2.append(row[1:])
 
-                            strengthListAll = []
-                            for i in strengths1[0]: # Getting all values from Strength1 list and appending to the StrengthList
-                                strengthListAll.append(i)
+                            strength_list_all = []
+                            for i in strengths_1[0]: # Getting all values from Strength1 list and appending to the StrengthList
+                                strength_list_all.append(i)
 
-                            for i in strengths2[0]: # Getting all values from Strength2 list and appending to the StrengthList
-                                strengthListAll.append(i)
+                            for i in strengths_2[0]: # Getting all values from Strength2 list and appending to the StrengthList
+                                strength_list_all.append(i)
 
-                            removeDuplicates = set(strengthListAll)
+                            remove_duplicates = set(strength_list_all)
 
-                            for i in removeDuplicates:
+                            for i in remove_duplicates:
                                 sentence += f" {i},"
 
                             print(f"{sentence[:-1]}\n") # Removing the Space and comma at the end of the sentence created by the last loop
@@ -203,10 +201,10 @@ def view_weaknesses(pokedex_csv):
                 if (pokemon[0] == pokemon_search): # Checks if the Pokemon matches the Pokemon desired in the list.csv
 
                     if (pokemon[2] != "None"):
-                        type1 = pokemon[1].capitalize()
-                        type2 = pokemon[2].capitalize()
+                        type_1 = pokemon[1].capitalize()
+                        type_2 = pokemon[2].capitalize()
                         single = False
-                        print(f"\n{pokemon[0]} is available! The types are {type1} & {type2}\n")
+                        print(f"\n{pokemon[0]} is available! The types are {type_1} & {type_2}\n")
 
                     else:
                         single = True
@@ -232,40 +230,40 @@ def view_weaknesses(pokedex_csv):
                                     print(f"{sentence}" + f"{weaknesses[:-2]}\n") # Removing the Space and comma at the end of the sentence created by the last loop
 
                         else: #
-                            search_type1 = type1 + "Weakness"
-                            search_type2 = type2 + "Weakness"
+                            search_type_1 = type_1 + "Weakness"
+                            search_type_2 = type_2 + "Weakness"
                             
                             sentence = "Weaknesses are:"
-                            weaknesses1 = []
-                            weaknesses2 = []
+                            weaknesses_1 = []
+                            weaknesses_2 = []
                             num = 1
 
                             for row in reader: # Getting the weaknesses from the first type
-                                if (row[0] == search_type1 and num == 1):# Making sure the first value from the CSV row is the same as what the user has searched, in addition to the weakness
+                                if (row[0] == search_type_1 and num == 1):# Making sure the first value from the CSV row is the same as what the user has searched, in addition to the weakness
                                     if (row[1] == "None"): # To check whether the weakness has "None", if it does, then don't include it
                                         pass
 
                                     else:
-                                        weaknesses1.append(row[1:])
+                                        weaknesses_1.append(row[1:])
                                         num += 1
 
-                                elif (row[0] == search_type2 and num == 2):
+                                elif (row[0] == search_type_2 and num == 2):
                                     if (row[1] == "None"): # To check whether the weakness has "None", if it does, then don't include it
                                         pass
 
                                     else:
-                                        weaknesses2.append(row[1:])
+                                        weaknesses_2.append(row[1:])
 
-                            weaknessListAll = []
-                            for i in weaknesses1[0]: # Getting all values from weakness1 list and appending to the weaknessList
-                                weaknessListAll.append(i)
+                            weakness_list_all = []
+                            for i in weaknesses_1[0]: # Getting all values from weakness1 list and appending to the weaknessList
+                                weakness_list_all.append(i)
 
-                            for i in weaknesses2[0]: # Getting all values from weakness2 list and appending to the weaknessList
-                                weaknessListAll.append(i)
+                            for i in weaknesses_2[0]: # Getting all values from weakness2 list and appending to the weaknessList
+                                weakness_list_all.append(i)
 
-                            removeDuplicates = set(weaknessListAll)
+                            remove_duplicates = set(weakness_list_all)
 
-                            for i in removeDuplicates:
+                            for i in remove_duplicates:
                                 sentence += f" {i},"
 
                             print(f"{sentence[:-1]}\n") # Removing the Space and comma at the end of the sentence created by the last loop

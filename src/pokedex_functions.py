@@ -1,4 +1,5 @@
 import csv
+import os.path
 
 def view_pokedex(pokedex_csv):
     with open(pokedex_csv, "r") as f:
@@ -182,7 +183,17 @@ def view_strengths(pokedex_csv):
                     print(f"\n{pokemon_search} was not found!\n")
 
     except FileNotFoundError:
-        print("The Pokedex file doesn't exist")
+        print("\nThe Pokedex file doesn't exist")
+        pokedex_csv = "list.csv"
+        if (not os.path.isfile(pokedex_csv)): # Checking if the file exists - if the file doesn't exist, it will create one
+            print("\nCreating file as it doesn't exist\n")
+            # Creating the file
+            pokedex_file = open(pokedex_csv, "w")
+            # Insert headiungs into the file
+            pokedex_file.write("name,type1,type2\n")
+            # Close the file
+            pokedex_file.close()
+            print("\"list.csv\" file created!\n")
 
 def view_weaknesses(pokedex_csv): 
     pokemon_search = input("Enter the Pokemon you would like to see the Weaknesses of: ").capitalize()
@@ -277,4 +288,14 @@ def view_weaknesses(pokedex_csv):
                     print(f"\n{pokemon_search} was not found!\n")
 
     except FileNotFoundError:
-        print("The Pokedex file doesn't exist")
+        print("\nThe Pokedex file doesn't exist")
+        pokedex_csv = "list.csv"
+        if (not os.path.isfile(pokedex_csv)): # Checking if the file exists - if the file doesn't exist, it will create one
+            print("\nCreating file as it doesn't exist\n")
+            # Creating the file
+            pokedex_file = open(pokedex_csv, "w")
+            # Insert headiungs into the file
+            pokedex_file.write("name,type1,type2\n")
+            # Close the file
+            pokedex_file.close()
+            print("\"list.csv\" file created!\n")

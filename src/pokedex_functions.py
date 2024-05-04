@@ -179,7 +179,7 @@ def view_strengths(pokedex_csv):
                     other_pokemon.append(pokemon)
 
             if (len(other_pokemon) == length): # If 'other_pokemon' and 'length' are the same value, the Pokemon that was searched was not found. If they are not equal, that means the pokemon was found and the incrementation was stopped
-                    print(f"\n{pokemon_search} was not found\n")
+                    print(f"\n{pokemon_search} was not found!\n")
 
     except FileNotFoundError:
         print("The Pokedex file doesn't exist")
@@ -274,7 +274,7 @@ def view_weaknesses(pokedex_csv):
                     other_pokemon.append(pokemon)
 
             if (len(other_pokemon) == length): # If 'other_pokemon' and 'length' are the same value, the Pokemon that was searched was not found. If they are not equal, that means the pokemon was found and the incrementation was stopped
-                    print(f"\n{pokemon_search} was not found\n")
+                    print(f"\n{pokemon_search} was not found!\n")
 
     except FileNotFoundError:
         print("The Pokedex file doesn't exist")

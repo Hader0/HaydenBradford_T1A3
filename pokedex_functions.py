@@ -14,7 +14,7 @@ def add_pokemon(pokedex_file):
         case "1":
             type1 = input("Please enter the Pokemon type: ").capitalize() # Takes the pokemon type in
             if allTypes.count(type1) > 0 and type1 != "": # Checks if the type matches one of the correct types in the allTypes list
-                with open(pokedex_file, "a") as f:
+                with open(pokedex_file, "a") as f: # If the type is correct, the pokemon is added to the pokedex
                     writer = csv.writer(f)
                     writer.writerow([pokemon_name.capitalize(), type1.capitalize(), "None"]) # Writes the name and type to the next line in list.csv
                 print(f"\n{pokemon_name.capitalize()} added to the Pokedex!")
@@ -27,19 +27,19 @@ def add_pokemon(pokedex_file):
         case "2":
             type1 = input("Please enter the Pokemon's first type: ").capitalize()
             wrong = 0
-            if allTypes.count(type1) > 0 and type1 != "":
+            if allTypes.count(type1) > 0 and type1 != "": # Checks if the type matches one of the correct types in the allTypes list
                 pass
             else:
-                wrong += 1
+                wrong += 1 # Increments the value if the type does not match one of the correct types in the allTypes list
             type2 = input("Please enter the Pokemon's second type: ").capitalize()
             if allTypes.count(type2) > 0 and type2 != "":
                 pass
             else:
-                wrong += 1
+                wrong += 1 # Increments the value if the type does not match one of the correct types in the allTypes list
 
             print("\n") # To space the menu from the line above once the input has been accepted
 
-            if wrong > 0: # If the wrong value is more than 0, one of the types are incorrect
+            if wrong > 0: # If the wrong value is more than 0, one of the types do not match one of the correct types in the allTypes list
                 print("\nPokemon not added - Incorrect Type/s. Please choose one of the available below:\n")
                 print("Normal, Fire, Water, Electric, Grass, Ice, Fighting, Poison, Ground, Flying, Psychic, Bug, Rock, Ghost, Dragon, Dark, Steel, Fairy\n")
             

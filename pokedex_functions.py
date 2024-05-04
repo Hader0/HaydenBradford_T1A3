@@ -1,7 +1,22 @@
 import csv
 
 def view_pokedex(pokedex_csv):
-    pass
+    with open(pokedex_csv, "r") as f:
+            reader = csv.reader(f)
+            reader.__next__() # Goes to the next row, skipping the first line
+
+            pokemonCollected = 0
+
+            print("Pokemon in your Pokedex!\n")
+
+            for row in reader:
+                pokemonCollected += 1 # Increments the value to how many rows/pokemon are in the list.csv
+                if row[2] == "None": # Checks if the pokemon has a second type or not
+                    print(f"{row[0]}: {row[1].capitalize()}") # Prints the pokemon name and the one type
+                else:
+                    print(f"{row[0]}: {row[1].capitalize()}, {row[2].capitalize()}")
+            
+            print(f"\nYou have collected {pokemonCollected} Pokemon!\n")
 
 def add_pokemon(pokedex_file):
     pokemon_name = input("Enter the Pokemon name: ") # Takes in a name, whether it be an official Pokemon or a made-up Pokemon

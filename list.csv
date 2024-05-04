@@ -1,4 +1,6 @@
 name,type1,type2
 Squirtle,water,None
 Charizard,fire,None
-Snorlax,Fighting,Normal
+Snorlax,fighting,normal
+Zapdos,electric,flying
+Zoom,fire,ice

@@ -45,6 +45,6 @@ while choice != "6": # Keeps the application running until "choice" is changed t
     elif (choice == "6"):
         choice = "6"
     else:
-        print("That is not an option. Please try again!")
+        print("That is not an option. Please try again!\n")
 
 print("Thanks for using the Pokedex application!")

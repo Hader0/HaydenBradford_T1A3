@@ -79,15 +79,13 @@ def view_strengths(pokedex_csv):
                         print(f"\n{pokemon[0]} is available! The type is {type}\n")
 
                     types_csv = "types.csv"
-                    with open(types_csv, "r") as f:
-                        reader = csv.reader(f)
+                    with open(types_csv, "r") as s:
+                        reader = csv.reader(s)
                         reader.__next__() # Goes to the next row, skipping the first line
 
-                        for row in reader:
-
-                            if single == True: # To check if the "type" variable has been assigned a value, if not, the pokemon has more than 1 type and it moves onto else
-                                search_type = type + "Strength"
-
+                        if single == True: # To check if the "type" variable has been assigned a value, if not, the pokemon has more than 1 type and it moves onto else
+                            search_type = type + "Strength"
+                            for row in reader:
                                 if (row[0] == search_type): # Making sure the first value from the CSV row is the same as what the user has searched, in addition to the Strength
 
                                     sentence = "Strengths are:"
@@ -96,18 +94,44 @@ def view_strengths(pokedex_csv):
                                     for i in row[1:]:
                                         strengths += f" {i}, "
 
-                                    print(sentence + strengths[:-2]) # Removing the Space and comma at the end of the sentence created by the last loop
+                                    print(f"{sentence}" + f"{strengths[:-2]}\n") # Removing the Space and comma at the end of the sentence created by the last loop
 
-                                    break
-                            else: #
-                                search_type1 = type1 + "Strength"
-                                search_type2 = type2 + "Strength"
+                        else: #
+                            search_type1 = type1 + "Strength"
+                            search_type2 = type2 + "Strength"
+                            
+                            sentence = "Strengths are:"
+                            strengths1 = []
+                            strengths2 = []
+                            num = 1
 
-                                if (row[0] == search_type1):
-                                    print(f"Strengths are: {row[1:]}")
-                                if (row[0] == search_type2):
-                                    print(f"Strengths are: {row[1:]}")
-                                
+                            for row in reader: # Getting the strengths from the first type
+                                if (row[0] == search_type1 and num == 1):# Making sure the first value from the CSV row is the same as what the user has searched, in addition to the Strength
+                                    if (row[1] == "None"): # To check whether the strength has "None", if it does, then don't include it
+                                        pass
+                                    else:
+                                        strengths1.append(row[1:])
+                                        num += 1
+                                elif (row[0] == search_type2 and num == 2):
+                                    if (row[1] == "None"): # To check whether the strength has "None", if it does, then don't include it
+                                        pass
+                                    else:
+                                        strengths2.append(row[1:])
+
+                            strengthListAll = []
+                            for i in strengths1[0]: # Getting all values from Strength1 list and appending to the StrengthList
+                                strengthListAll.append(i)
+                                # sentence += f" {i},"
+                            for i in strengths2[0]: # Getting all values from Strength2 list and appending to the StrengthList
+                                strengthListAll.append(i)
+                                # sentence += f" {i},"
+
+                            removeDuplicates = set(strengthListAll)
+
+                            for i in removeDuplicates:
+                                sentence += f" {i},"
+
+                            print(f"{sentence[:-1]}\n") # Removing the Space and comma at the end of the sentence created by the last loop
                     
                     break # To break the For Loop and stop the incrementing of the 'length' variable
                 else:

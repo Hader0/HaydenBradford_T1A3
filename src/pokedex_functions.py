@@ -1,4 +1,5 @@
 import csv
+
 import os.path
 
 def view_pokedex(pokedex_csv):

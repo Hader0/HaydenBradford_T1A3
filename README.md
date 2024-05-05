@@ -151,5 +151,47 @@ You must include:
 - any system/hardware requirements
 - how to use any command line arguments made for the application
 
+#### How to Install the Application
+
+To install this application, please follow the below steps:
+- Click [Here](https://github.com/Hader0/HaydenBradford_T1A3) to visit the Repository
+- On the Repository page, there is a green code button, please see below for reference:
+![Green Code Button](/docs/button.png)
+- Click that button and select 'Download ZIP'.
+- Once the file has been download, unzip that folder to a location of your choice.
+- The Application is now installed!
+
+**NOTE:** Before you run the application, move the following files from the 'src' folder, outside and to the parent folder for the application to work.
+
+- list.csv
+- types.csv
+
 #### Dependencies
-**All that is needed is for Python 3 to be installed**. All Libraries used are by included by default in Python. 
+
+**All that is needed is for Python 3 to be installed**.
+All Libraries used are by included by default in Python.
+
+#### How To Use The App
+
+**NOTE:** Before you run the application, move the following files from the 'src' folder, outside and to the main/parent folder for the application to work.
+
+- list.csv
+- types.csv
+
+This app, named "Pokedex", has 5 different choices. These choices are: View Pokedex, Add a Pokemon to your Pokedex, Remove a Pokemon from your Pokedex, See the strengths of a Pokemon and See the weaknesses of a Pokemon. Below is a picture of that menu:
+
+![Pokedex Menu](/docs/menu.png)
+
+To start off, you will have no Pokemon in your Pokedex. To add a Pokemon to your Pokedex, enter "2" on the line that states "Enter your selection:". Once you have entered that number, you will be presented with a option to enter your Pokemon name. This can be either a made-up name or an Official Pokemon. Once you have entered in a name, you will be presented with a question: "Does your Pokemon have one or two types? Enter 1 or 2:". For example, if you would like to add Zapdos to your Pokedex, you will need to enter "2". The Application then asks for you to enter in the Pokemon's first type. Since we are using Zapdos, we will enter in "Electric" for the first type. Then once the Application asks for the second type, we will enter in "Flying". Please see below to see an image of the code functioning
+
+![Pokedex Add Pokemon Menu](/docs/addpokemonimg.png)
+
+Now that a Pokemon is added, you can view what Pokemon you have in your Pokedex. To do this, enter "1" at the main menu where it asked to "Enter your selection". Once that is entered, it immediately shows each Pokemon and their types. Then you are shown how many Pokemon you have collected.
+
+![Pokedex View Pokemon Menu](/docs/viewpokemonimg.png)
+
+To see the strengths or weaknesses of a Pokemon, enter "4" to see the strengths or "5" to see the weaknesses. For the purpose of explanation, we will choose to enter "4" to see the strengths. Once you have entered in your selection, you will be prompted with: "Enter the Pokemon you would like to see the Strengths of:". We will enter Zapdos since we earlier added it to the Pokedex. The following is displayed.
+
+![Pokedex View Strength/Weakness Menu](/docs/weaknessstrength.png)
+
+To exit from the application, enter 6 into the "Enter your selection:" input and the application will end.

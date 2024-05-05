@@ -16,13 +16,11 @@ FightingWeakness,Poison,Flying,Psychic,Bug,Fairy
 PoisonStrength,Grass,Fairy
 PoisonWeakness,Poison,Ground,Rock,Ghost
 GroundStrength,Fire,Electric,Poison,Rock,Steel
-Ground,Grass,Bug
-Ground,Flying
+GroundWeakness,Grass,Bug
 FlyingStrength,Grass,Fighting,Bug
-Flying,Electric,Rock,Steel
+FlyingWeakness,Electric,Rock,Steel
 PsychicStrength,Fighting,Poison
-Psychic,Psychic,Steel
-Psychic,Dark
+PsychicWeakness,Psychic,Steel
 BugStrength,Grass,Psychic,Dark
 BugWeakness,Fire,Fighting,Poison,Flying,Ghsot,Steel,Fairy
 RockStrength,Fire,Ice,Flying,Bug

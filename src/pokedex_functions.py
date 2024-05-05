@@ -24,7 +24,7 @@ def add_pokemon(pokedex_file):
 
     all_types = ['Normal', 'Fire', 'Water', 'Electric', 'Grass', 'Ice', 'Fighting', 'Poison', 'Ground', 'Flying', 'Psychic', 'Bug', 'Rock', 'Ghost', 'Dragon', 'Dark', 'Steel', 'Fairy']
     
-    if number_of_types == 1:
+    if number_of_types == str(1):
             type_1 = input("Please enter the Pokemon type: ").capitalize() # Takes the pokemon type in
             if all_types.count(type_1) > 0 and type_1 != "": # Checks if the type matches one of the correct types in the allTypes list
                 with open(pokedex_file, "a") as f: # If the type is correct, the pokemon is added to the pokedex
@@ -34,10 +34,8 @@ def add_pokemon(pokedex_file):
             else:
                 print("\nPokemon not added - Incorrect Type. Please choose one of the available below:\n")
                 print("Normal, Fire, Water, Electric, Grass, Ice, Fighting, Poison, Ground, Flying, Psychic, Bug, Rock, Ghost, Dragon, Dark, Steel, Fairy")
-                
-            print("\n") # To space the menu from the line above once the input has been accepted
 
-    elif number_of_types == 2:
+    elif number_of_types == str(2):
         type_1 = input("Please enter the Pokemon's first type: ").capitalize()
         wrong = 0
         if all_types.count(type_1) > 0 and type_1 != "": # Checks if the type matches one of the correct types in the allTypes list
@@ -49,8 +47,6 @@ def add_pokemon(pokedex_file):
             pass
         else:
             wrong += 1 # Increments the value if the type does not match one of the correct types in the allTypes list
-
-        print("\n") # To space the menu from the line above once the input has been accepted
 
         if wrong > 0: # If the wrong value is more than 0, one of the types do not match one of the correct types in the allTypes list
             print("\nPokemon not added - Incorrect Type/s. Please choose one of the available below:\n")
@@ -147,18 +143,24 @@ def view_strengths(pokedex_csv):
                             for row in reader: # Getting the strengths from the first type
                                 if (row[0] == search_type_1 and num == 1):# Making sure the first value from the CSV row is the same as what the user has searched, in addition to the Strength
                                     if (row[1] == "None"): # To check whether the strength has "None", if it does, then don't include it
-                                        pass
+                                        num += 1
+                                        strengths_1.append(f"{type_1} has no strengths")
+                                        break
 
                                     else:
                                         strengths_1.append(row[1:])
                                         num += 1
+                                        break
 
-                                elif (row[0] == search_type_2 and num == 2):
+                            for row in reader:
+                                if (row[0] == search_type_2 and num == 2):
                                     if (row[1] == "None"): # To check whether the strength has "None", if it does, then don't include it
-                                        pass
+                                        strengths_2.append(f"{type_2} has no strengths")
+                                        break
 
                                     else:
                                         strengths_2.append(row[1:])
+                                        break
 
                             strength_list_all = []
                             for i in strengths_1[0]: # Getting all values from Strength1 list and appending to the StrengthList

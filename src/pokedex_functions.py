@@ -31,10 +31,10 @@ def add_pokemon(pokedex_file):
                 with open(pokedex_file, "a") as f: # If the type is correct, the pokemon is added to the pokedex
                     writer = csv.writer(f)
                     writer.writerow([pokemon_name.capitalize(), type_1.capitalize(), "None"]) # Writes the name and type to the next line in list.csv
-                print(f"\n{pokemon_name.capitalize()} added to the Pokedex!")
+                print(f"\n{pokemon_name.capitalize()} added to the Pokedex!\n")
             else:
                 print("\nPokemon not added - Incorrect Type. Please choose one of the available below:\n")
-                print("Normal, Fire, Water, Electric, Grass, Ice, Fighting, Poison, Ground, Flying, Psychic, Bug, Rock, Ghost, Dragon, Dark, Steel, Fairy")
+                print("Normal, Fire, Water, Electric, Grass, Ice, Fighting, Poison, Ground, Flying, Psychic, Bug, Rock, Ghost, Dragon, Dark, Steel, Fairy\n")
 
     elif number_of_types == str(2):
         type_1 = input("Please enter the Pokemon's first type: ").capitalize()
@@ -144,8 +144,8 @@ def view_strengths(pokedex_csv):
                             for row in reader: # Getting the strengths from the first type
                                 if (row[0] == search_type_1 and num == 1):# Making sure the first value from the CSV row is the same as what the user has searched, in addition to the Strength
                                     if (row[1] == "None"): # To check whether the strength has "None", if it does, then don't include it
+                                        strengths_1.append(row[1:])
                                         num += 1
-                                        strengths_1.append(f"{type_1} has no strengths")
                                         break
 
                                     else:
@@ -156,7 +156,7 @@ def view_strengths(pokedex_csv):
                             for row in reader:
                                 if (row[0] == search_type_2 and num == 2):
                                     if (row[1] == "None"): # To check whether the strength has "None", if it does, then don't include it
-                                        strengths_2.append(f"{type_2} has no strengths")
+                                        strengths_2.append(row[1:])
                                         break
 
                                     else:
@@ -171,6 +171,9 @@ def view_strengths(pokedex_csv):
                                 strength_list_all.append(i)
 
                             remove_duplicates = set(strength_list_all)
+
+                            if "None" in remove_duplicates: # To remove "none" from the list
+                                remove_duplicates.remove("None")
 
                             for i in remove_duplicates:
                                 sentence += f" {i},"
@@ -199,7 +202,7 @@ def view_strengths(pokedex_csv):
             print("\"list.csv\" file created!\n")
 
 def view_weaknesses(pokedex_csv): 
-    pokemon_search = input("Enter the Pokemon you would like to see the Weaknesses of: ").capitalize()
+    pokemon_search = input("Enter the Pokemon you would like to see the Strengths of: ").capitalize()
     other_pokemon = []
 
     try: # Try block to detect whether the list.csv exists, to prevent the program from crashing
@@ -233,7 +236,7 @@ def view_weaknesses(pokedex_csv):
                         if single == True: # To check if the "type" variable has been assigned a value, if not, the pokemon has more than 1 type and it moves onto else
                             search_type = type + "Weakness"
                             for row in reader:
-                                if (row[0] == search_type): # Making sure the first value from the CSV row is the same as what the user has searched, in addition to the Weakness
+                                if (row[0] == search_type): # Making sure the first value from the CSV row is the same as what the user has searched, in addition to the weakness
 
                                     sentence = "Weaknesses are:"
                                     weaknesses = ""
@@ -252,30 +255,39 @@ def view_weaknesses(pokedex_csv):
                             weaknesses_2 = []
                             num = 1
 
-                            for row in reader: # Getting the weaknesses from the first type
+                            for row in reader: # Getting the strengths from the first type
                                 if (row[0] == search_type_1 and num == 1):# Making sure the first value from the CSV row is the same as what the user has searched, in addition to the weakness
                                     if (row[1] == "None"): # To check whether the weakness has "None", if it does, then don't include it
-                                        pass
+                                        weaknesses_1.append(row[1:])
+                                        num += 1
+                                        break
 
                                     else:
                                         weaknesses_1.append(row[1:])
                                         num += 1
+                                        break
 
-                                elif (row[0] == search_type_2 and num == 2):
+                            for row in reader:
+                                if (row[0] == search_type_2 and num == 2):
                                     if (row[1] == "None"): # To check whether the weakness has "None", if it does, then don't include it
-                                        pass
+                                        weaknesses_2.append(row[1:])
+                                        break
 
                                     else:
                                         weaknesses_2.append(row[1:])
+                                        break
 
                             weakness_list_all = []
-                            for i in weaknesses_1[0]: # Getting all values from weakness1 list and appending to the weaknessList
+                            for i in weaknesses_1[0]: # Getting all values from weaknesses_1 list and appending to the weakness_list_all
                                 weakness_list_all.append(i)
 
-                            for i in weaknesses_2[0]: # Getting all values from weakness2 list and appending to the weaknessList
+                            for i in weaknesses_2[0]: # Getting all values from weaknesses_2 list and appending to the weakness_list_all
                                 weakness_list_all.append(i)
 
                             remove_duplicates = set(weakness_list_all)
+
+                            if "None" in remove_duplicates: # To remove "none" from the list
+                                remove_duplicates.remove("None")
 
                             for i in remove_duplicates:
                                 sentence += f" {i},"

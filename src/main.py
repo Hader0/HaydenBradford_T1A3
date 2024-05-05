@@ -5,7 +5,7 @@ print("Welcome to your Pokedex!\n")
 print("Add any Pokemon to the Pokedex! Even Pokemon you have created!\n")
 
 def pokedex_menu(): # The main menu the user can see when initially running the application
-    print(f"1. Enter 1 to view your Pokedex")
+    print("1. Enter 1 to view your Pokedex")
     print("2. Enter 2 to add a Pokemon to your Pokedex")
     print("3. Enter 3 to remove a Pokemon from your Pokedex")
     print("4. Enter 4 to see the strengths of a Pokemon")

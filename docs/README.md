@@ -171,6 +171,8 @@ All Libraries used are by included by default in Python.
 - list.csv
 - types.csv
 
+**To run the app, open the "run.sh" file located in the "src" folder.** Once the application is running, continue to read below.
+
 This app, named "Pokedex", has 5 different choices. These choices are: View Pokedex, Add a Pokemon to your Pokedex, Remove a Pokemon from your Pokedex, See the strengths of a Pokemon and See the weaknesses of a Pokemon. Below is a picture of that menu:
 
 ![Pokedex Menu](/docs/menu.png)
